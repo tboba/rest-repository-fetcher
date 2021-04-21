@@ -1,0 +1,27 @@
+language: java
+dist: trusty
+
+jdk:
+  - openjdk8
+  - oraclejdk8
+
+before_install:
+  - java -version
+  - echo JAVA_HOME = ${JAVA_HOME}
+  - echo PATH = ${PATH}
+  - ./gradlew --version
+
+install: script/install
+script: script/script
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+
+notifications:
+  email: false

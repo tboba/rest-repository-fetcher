@@ -1,0 +1,28 @@
+### JAVA FILES ###
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Virtual machine crash files
+hs_err_pid*
+
+# Package Files #
+*.jar
+
+### GRADLE FILES ###
+.gradle/
+build/
+
+### IntelliJ IDEA FILES ###
+.idea/
+out/
+*.iws
+*.iml
+*.ipr
+
+### ARCHIVE FILES ###
+*.rar
+*.zip
+*.tar.gz
