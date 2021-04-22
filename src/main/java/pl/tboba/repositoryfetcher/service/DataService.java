@@ -1,8 +1,9 @@
-package pl.tboba.repositoryfetcher.helper;
+package pl.tboba.repositoryfetcher.service;
 
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import pl.tboba.repositoryfetcher.model.GithubRepository;
@@ -11,7 +12,8 @@ import pl.tboba.repositoryfetcher.model.GithubUser;
 import java.util.List;
 import java.util.Optional;
 
-public class DataFetcher {
+@Service
+public class DataService {
 
     public static Optional<List<GithubRepository>> getParsedRepositoriesFromUser(String username) {
         RestTemplate restTemplate = new RestTemplate();
@@ -48,6 +50,6 @@ public class DataFetcher {
         return Optional.of(new GithubUser(username, stargazers));
     }
 
-    private DataFetcher() {}
+    private DataService() {}
 
 }
