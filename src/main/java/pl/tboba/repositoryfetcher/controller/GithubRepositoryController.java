@@ -16,25 +16,19 @@ import java.util.Optional;
 public class GithubRepositoryController {
 
     @RequestMapping(path = "/repos/{user}", method = RequestMethod.GET)
-    public ResponseEntity<?> getUserRepositories(@PathVariable("user") String user) {
+    public ResponseEntity<List<GithubRepository>> getUserRepositories(@PathVariable("user") String user) {
         Optional<List<GithubRepository>> optionalRepositoryList = DataFetcher.getParsedRepositoriesFromUser(user);
 
-        if (!optionalRepositoryList.isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(optionalRepositoryList.get());
+        return optionalRepositoryList.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @RequestMapping(path = "/stargazers/{user}", method = RequestMethod.GET)
-    public ResponseEntity<?> getUserStargazers(@PathVariable("user") String user) {
+    public ResponseEntity<GithubUser> getUserStargazers(@PathVariable("user") String user) {
         Optional<GithubUser> optionalGithubUser = DataFetcher.getGithubUser(user);
 
-        if (!optionalGithubUser.isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-
-        return ResponseEntity.ok(optionalGithubUser.get());
+        return optionalGithubUser.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }
