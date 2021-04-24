@@ -1,4 +1,4 @@
-package pl.tboba.repositoryfetcher.model;
+package pl.tboba.repositoryfetcher.model.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

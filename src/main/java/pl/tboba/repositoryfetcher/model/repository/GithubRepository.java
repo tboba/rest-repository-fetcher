@@ -1,19 +1,19 @@
-package pl.tboba.repositoryfetcher.model;
+package pl.tboba.repositoryfetcher.model.repository;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.boot.jackson.JsonComponent;
 
-import javax.validation.constraints.NotBlank;
 
 @JsonComponent
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class GithubRepository {
-    
-    @NotBlank(message = "Repository name cannot be empty!")
+
     @JsonProperty("name")
     private String name;
 
