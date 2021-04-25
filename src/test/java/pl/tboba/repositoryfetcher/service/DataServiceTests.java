@@ -3,8 +3,6 @@ package pl.tboba.repositoryfetcher.service;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.*;
 import org.mockito.Mockito;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -18,11 +16,9 @@ import pl.tboba.repositoryfetcher.model.user.GithubUserState;
 import java.util.List;
 import java.util.Optional;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DataServiceTests {
 
-    @Autowired
-    private DataService dataService;
+    private final DataService dataService = new DataService();
 
     @Test
     @DisplayName("Return correct batch of repositories for a guaranteed user test")
