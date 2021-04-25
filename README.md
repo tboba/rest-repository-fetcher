@@ -25,10 +25,10 @@ After executing those operations, an application should start shortly.
 To test the application, simply execute `./gradlew test` command (or `gradlew.bat test`, while using Windows) in the application directory.
 The tests should run automatically.
 
-## Further plans
-In the future, I plan to implement the possibility of checking user data with the use of
+## Plans to improve
+In the future, it is possible to implement the ability to check user data with the use of
 more vendors of the Version Control System (e.g. GitLab, BitBucket). 
-In addition, I also want to implement the listing of the users, who gave a stargazer to a shown repository and
+In addition, the repository can also be improved by implementing the listing of the users, who starred shown repository and
 extend the list of the endpoints with new replies in the future.
 
 <hr>
